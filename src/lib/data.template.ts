@@ -14,4 +14,10 @@ export const links = {
 
 export const skills = [''];
 
-export const certs = [{ name: '', by: '', year: '' }];
+export const certs: Cert[] = [];
+
+interface Cert {
+	name: string;
+	by: string;
+	year: string;
+}
