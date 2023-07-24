@@ -10,12 +10,12 @@
 	import { contact, links, skills, certs, experiences, projects, educations } from '$lib/data';
 </script>
 
-<main
-	class="w-full aspect-[1/1.41421] bg-white font-merri mx-auto text-text text-sm py-20"
-	id="cv"
->
+<main class="w-full aspect-[1/1.41421] bg-white font-merri mx-auto text-text text-sm py-20" id="cv">
 	<section>
-		<h1 class="text-center font-bold text-2xl pb-10">{contact.fullName}</h1>
+		<h1 class="text-center font-bold text-2xl pb-10 leading-none">
+			{contact.fullName}<br />
+			<h2 class="leading-none font-normal text-base pt-1">( {contact.nickname} )</h2>
+		</h1>
 		<div class="flex flex-wrap w-7/12 mx-auto justify-center pb-4">
 			<span class="flex items-center px-2 py-1 gap-0">
 				<IconLocation />{contact.location}

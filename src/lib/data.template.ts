@@ -1,5 +1,6 @@
 export const contact = {
 	fullName: '',
+	nickname: '',
 	location: '',
 	email: '',
 	phone: '',
