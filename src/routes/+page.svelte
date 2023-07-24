@@ -7,7 +7,7 @@
 
 	import IconDot from '~icons/mdi/dot';
 
-	import { contact, links, skills, certs, experiences } from '$lib/data';
+	import { contact, links, skills, certs, experiences, projects } from '$lib/data';
 </script>
 
 <div class="flex items-center justify-center py-8">
@@ -70,6 +70,21 @@
 		<section class="">
 			<h2 class="font-semibold text-xl">PROJECTS</h2>
 			<div class="w-full h-[2px] bg-black mb-2" />
+			{#each projects as pj}
+				<div>
+					<h3 class="text-[1.05rem] font-bold">{pj.title}</h3>
+					<div class="flex gap-1">
+						<p>{pj.org}</p>
+						<p>-</p>
+						<p>{pj.year}</p>
+					</div>
+					<ul class="py-1">
+						{#each pj.description.split('\n') as dsc}
+							<li>{dsc}</li>
+						{/each}
+					</ul>
+				</div>
+			{/each}
 		</section>
 
 		<hr class="my-4" />
