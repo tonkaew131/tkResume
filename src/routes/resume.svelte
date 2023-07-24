@@ -7,15 +7,11 @@
 
 	import IconDot from '~icons/mdi/dot';
 
-	import { contact, links, skills, certs, experiences, projects } from '$lib/data';
+	import { contact, links, skills, certs, experiences, projects, educations } from '$lib/data';
 </script>
 
-<div class="flex items-center justify-center py-8">
-	<button class=" bg-emerald-500 text-white px-3 py-1 rounded-md" id="print">Print</button>
-</div>
-
 <main
-	class="w-full max-w-7xl aspect-[1/1.41421] bg-white font-merri mx-auto shadow text-text text-sm py-20"
+	class="w-full aspect-[1/1.41421] bg-white font-merri mx-auto text-text text-sm py-20"
 	id="cv"
 >
 	<section>
@@ -50,7 +46,7 @@
 			<h2 class="font-semibold text-xl">EXPERIENCE</h2>
 			<div class="w-full h-[2px] bg-black mb-2" />
 			{#each experiences as ex}
-				<div>
+				<div class="pt-2">
 					<h3 class="font-bold text-[1.05rem]">{ex.role}</h3>
 					<div class="flex justify-between font-bold">
 						<p>{ex.company}</p>
@@ -71,7 +67,7 @@
 			<h2 class="font-semibold text-xl">PROJECTS</h2>
 			<div class="w-full h-[2px] bg-black mb-2" />
 			{#each projects as pj}
-				<div>
+				<div class="pt-2">
 					<h3 class="text-[1.05rem] font-bold">{pj.title}</h3>
 					<div class="flex gap-1">
 						<p>{pj.org}</p>
@@ -92,6 +88,15 @@
 		<section class="">
 			<h2 class="font-semibold text-xl">EDUCATION</h2>
 			<div class="w-full h-[2px] bg-black mb-2" />
+			{#each educations as ed}
+				<div>
+					<h3 class="text-[1.05rem] font-bold">{ed.degree}</h3>
+					<div class="flex justify-between">
+						<span>{ed.university} - {ed.location}</span>
+						<span>{ed.yearEarned}, GPA: {ed.gpa} </span>
+					</div>
+				</div>
+			{/each}
 		</section>
 
 		<hr class="my-4" />

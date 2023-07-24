@@ -33,6 +33,16 @@ interface Project {
 	description: string;
 }
 
+export const educations: Education[] = [];
+
+interface Education {
+	degree: string;
+	university: string;
+	location: string;
+	yearEarned: string;
+	gpa?: number;
+}
+
 export const certs: Cert[] = [];
 
 interface Cert {
