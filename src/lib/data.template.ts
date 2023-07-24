@@ -14,6 +14,25 @@ export const links = {
 
 export const skills = [''];
 
+export const experiences: Experience[] = [];
+
+interface Experience {
+	role: string;
+	company: string;
+	year: string;
+	location: string;
+	description: string;
+}
+
+export const projects: Project[] = [];
+
+interface Project {
+	title: string;
+	org: string;
+	year: string;
+	description: string;
+}
+
 export const certs: Cert[] = [];
 
 interface Cert {
