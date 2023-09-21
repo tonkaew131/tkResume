@@ -68,9 +68,15 @@
 			<div class="w-full h-[2px] bg-black mb-2" />
 			{#each projects as pj}
 				<div class="pt-2">
-					<h3 class="text-[1.05rem] font-bold">{pj.title}</h3>
+					{#if pj.href}
+						<a href={pj.href}>
+							<h3 class="text-[1.05rem] font-bold">{pj.title}</h3>
+						</a>
+					{:else}
+						<h3 class="text-[1.05rem] font-bold">{pj.title}</h3>
+					{/if}
 					<div class="flex gap-1">
-						<p>{pj.org}</p>
+						<p class="font-semibold">{pj.org}</p>
 						<p>-</p>
 						<p>{pj.year}</p>
 					</div>
@@ -93,7 +99,7 @@
 					<h3 class="text-[1.05rem] font-bold">{ed.degree}</h3>
 					<div class="flex justify-between">
 						<span>{ed.university} - {ed.location}</span>
-						<span>{ed.yearEarned}, GPA: {ed.gpa} </span>
+						<span>{ed.yearEarned}, GPAX: {ed.gpax?.toFixed(2)} </span>
 					</div>
 				</div>
 			{/each}
