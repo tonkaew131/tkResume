@@ -16,7 +16,8 @@
 			{contact.fullName}<br />
 			<h2 class="leading-none font-normal text-base pt-1">( {contact.nickname} )</h2>
 		</h1>
-		<div class="flex flex-wrap w-7/12 mx-auto justify-center pb-4">
+		<!-- w-7/12 -->
+		<div class="flex flex-wrap w-[40%] mx-auto justify-center pb-4">
 			<span class="flex items-center px-2 py-1 gap-0">
 				<IconLocation />{contact.location}
 			</span>
@@ -26,11 +27,13 @@
 			<span class="flex items-center px-2 py-1 gap-0">
 				<IconPhone />{contact.phone}
 			</span>
-			<a href={links.linkedIn}>
-				<span class="flex items-center px-2 py-1 gap-1">
-					<IconLinkedIn />{contact.linkedIn}
-				</span>
-			</a>
+			{#if links.linkedIn.length != 0}
+				<a href={links.linkedIn}>
+					<span class="flex items-center px-2 py-1 gap-1">
+						<IconLinkedIn />{contact.linkedIn}
+					</span>
+				</a>
+			{/if}
 			<a href={links.github}>
 				<span class="flex items-center px-2 py-1 gap-1">
 					<IconGithub />{contact.github}
@@ -63,33 +66,35 @@
 
 		<hr class="my-4" />
 
-		<section class="">
-			<h2 class="font-semibold text-xl">PROJECTS</h2>
-			<div class="w-full h-[2px] bg-black mb-2" />
-			{#each projects as pj}
-				<div class="pt-2">
-					{#if pj.href}
-						<a href={pj.href}>
+		{#if projects.length != 0}
+			<section class="">
+				<h2 class="font-semibold text-xl">PROJECTS</h2>
+				<div class="w-full h-[2px] bg-black mb-2" />
+				{#each projects as pj}
+					<div class="pt-2">
+						{#if pj.href}
+							<a href={pj.href}>
+								<h3 class="text-[1.05rem] font-bold">{pj.title}</h3>
+							</a>
+						{:else}
 							<h3 class="text-[1.05rem] font-bold">{pj.title}</h3>
-						</a>
-					{:else}
-						<h3 class="text-[1.05rem] font-bold">{pj.title}</h3>
-					{/if}
-					<div class="flex gap-1">
-						<p class="font-semibold">{pj.org}</p>
-						<p>-</p>
-						<p>{pj.year}</p>
+						{/if}
+						<div class="flex gap-1">
+							<p class="font-semibold">{pj.org}</p>
+							<p>-</p>
+							<p>{pj.year}</p>
+						</div>
+						<ul class="py-1">
+							{#each pj.description.split('\n') as dsc}
+								<li>{dsc}</li>
+							{/each}
+						</ul>
 					</div>
-					<ul class="py-1">
-						{#each pj.description.split('\n') as dsc}
-							<li>{dsc}</li>
-						{/each}
-					</ul>
-				</div>
-			{/each}
-		</section>
+				{/each}
+			</section>
 
-		<hr class="my-4" />
+			<hr class="my-4" />
+		{/if}
 
 		<section class="">
 			<h2 class="font-semibold text-xl">EDUCATION</h2>
@@ -107,35 +112,39 @@
 
 		<hr class="my-4" />
 
-		<section class="">
-			<h2 class="font-semibold text-xl uppercase">Certifications</h2>
-			<div class="w-full h-[2px] bg-black mb-2" />
+		{#if certs.length != 0}
+			<section class="">
+				<h2 class="font-semibold text-xl uppercase">Certifications</h2>
+				<div class="w-full h-[2px] bg-black mb-2" />
 
-			{#each certs as cert}
-				<div class="">
-					<p class="font-bold leading-none">
-						{cert.name}
-					</p>
-					<div class="flex items-center">
-						{cert.by}
-						<IconDot />
-						{cert.year}
+				{#each certs as cert}
+					<div class="">
+						<p class="font-bold leading-none">
+							{cert.name}
+						</p>
+						<div class="flex items-center">
+							{cert.by}
+							<IconDot />
+							{cert.year}
+						</div>
 					</div>
-				</div>
-			{/each}
-		</section>
+				{/each}
+			</section>
 
-		<hr class="my-4" />
+			<hr class="my-4" />
+		{/if}
 
-		<section class="">
-			<h2 class="font-semibold text-xl uppercase">SKILLS</h2>
-			<div class="w-full h-[2px] bg-black mb-2" />
+		{#if skills.length != 0}
+			<section class="">
+				<h2 class="font-semibold text-xl uppercase">SKILLS</h2>
+				<div class="w-full h-[2px] bg-black mb-2" />
 
-			{#each skills as sk}
-				<p class="font-bold">
-					{sk}
-				</p>
-			{/each}
-		</section>
+				{#each skills as sk}
+					<p class="font-bold">
+						{sk}
+					</p>
+				{/each}
+			</section>
+		{/if}
 	</div>
 </main>
