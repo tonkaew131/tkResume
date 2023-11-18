@@ -52,8 +52,12 @@
 				<div class="pt-2">
 					<h3 class="font-bold text-[1.05rem]">{ex.role}</h3>
 					<div class="flex justify-between font-bold">
-						<p>{ex.company}</p>
-						<p>{ex.year}, {ex.location}</p>
+						<p class="font-normal">{ex.company}</p>
+						{#if ex.year.length == 0}
+							<p>{ex.location}</p>
+						{:else}
+							<p>{ex.year}, {ex.location}</p>
+						{/if}
 					</div>
 					<ul class="py-1">
 						{#each ex.description.split('\n') as dsc}
